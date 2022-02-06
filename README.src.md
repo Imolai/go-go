@@ -306,6 +306,10 @@ as an anonymous placeholder instead of a regular (non-blank) identifier.
 
 > KEYWORDS: **const**.
 
+There are boolean constants, rune constants, integer constants, floating-point
+constants, complex constants, and string constants. Rune, integer,
+floating-point, and complex constants are collectively called numeric constants.
+
 The **predeclared** constants are: `true`, `false`, `iota`.
 
 The special constant `iota`:
@@ -329,6 +333,9 @@ Iota keyword can be used on each line, or can be skipped as well.
 ### Variables
 
 > KEYWORDS: **var**.
+
+A variable is a storage location for holding a value. The set of permissible
+values is determined by the variable's type.
 
 The **predeclared** zero value: `nil`.
 
@@ -354,6 +361,10 @@ initialization is done recursively.
 ### Types
 
 > KEYWORDS: **type**.
+
+A type determines a set of values together with operations and methods specific
+to those values. A type may be denoted by a type name, if it has one, or
+specified using a type literal, which composes a type from existing types.
 
 **Basic types**: boolean, int, float, complex, rune, string.  
 **Composite types**: array, struct, pointer, function, interface, slice, map,
@@ -498,6 +509,9 @@ v, ok := m["Answer"]      // reading from map similar
 
 > KEYWORDS: **struct**.
 
+A struct is a sequence of named elements, called *fields*, each of which has a
+name and a type.
+
 #### Named Structs
 
 ---
@@ -526,6 +540,9 @@ v, ok := m["Answer"]      // reading from map similar
 
 > KEYWORDS: **map**.
 
+A map is an unordered group of *elements* of one type, called the element type,
+indexed by a set of unique *keys* of another type, called the key type.
+
 ---
 
 [map.go](./src/map.go)
@@ -539,6 +556,9 @@ v, ok := m["Answer"]      // reading from map similar
 ### Functions / Methods
 
 > KEYWORDS: **func**.
+
+A function type denotes the set of all functions with the same parameter and
+result types.
 
 The **predeclared** functions: append, cap, close, complex, copy, delete, imag,
 len, make, new, panic, print, println, real, recover.
@@ -606,6 +626,9 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 
 > KEYWORDS: **goto**.
 
+A "goto" statement transfers control to the statement with the corresponding
+label within the same function.
+
 ---
 
 [goto.go](./src/goto.go)
@@ -619,6 +642,9 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 #### Return a Function or Method
 
 > KEYWORDS: **return**.
+
+A "return" statement in a function F terminates the execution of F, and
+optionally provides one or more result values.
 
 ---
 
@@ -634,6 +660,11 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 
 > KEYWORDS: **defer**.
 
+A "defer" statement invokes a function whose execution is deferred to the
+moment the surrounding function *returns*, either because the surrounding
+function *executed a return statement*, *reached the end* of its function body,
+or because the corresponding goroutine is *panicking*.
+
 ---
 
 [defer.go](./src/defer.go)
@@ -647,6 +678,10 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 ### Interfaces
 
 > KEYWORDS: **interface**.
+
+An interface type specifies a *method set* called its interface. A variable of
+interface type can store a value of any type with a method set that is any
+superset of the interface. Such a type is said to *implement the interface*.
 
 ---
 
@@ -662,6 +697,9 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 
 > KEYWORDS: **if**.
 
+"If" statements specify the conditional execution of two branches according to
+the value of a boolean expression.
+
 ---
 
 [if.go](./src/if.go)
@@ -675,6 +713,9 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 ### Else of If
 
 > KEYWORDS: **else**.
+
+If the expression evaluates to true, the "if" branch is executed, otherwise, if
+present, the "else" branch is executed.
 
 ---
 
@@ -690,7 +731,14 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 
 > KEYWORDS: **switch**.
 
+"Switch" statements provide multi-way execution. An expression or type is
+compared to the "cases" inside the "switch" to determine which branch to
+execute.
+
 ### Expression Switches
+
+In an expression switch, the cases contain expressions that are compared against
+the value of the switch expression.
 
 ---
 
@@ -703,6 +751,9 @@ The documentation of builtin functions: <https://pkg.go.dev/builtin>.
 **[⬆ Back to top](#contents)**
 
 ### Type Switches
+
+In a type switch, the cases contain types that are compared against the type of
+a specially annotated switch expression.
 
 A type switch is a construct that permits several type assertions in series.
 
@@ -735,6 +786,11 @@ default:
 
 > KEYWORDS: **case**.
 
+In an expression switch, the switch expression is evaluated and the case
+expressions, which need not be constants, are evaluated left-to-right and
+top-to-bottom; the first one that equals the switch expression triggers
+execution of the statements of the associated case; the other cases are skipped.
+
 ---
 
 [case.go](./src/case.go)
@@ -748,6 +804,10 @@ default:
 ### Default case in a Switch
 
 > KEYWORDS: **default**.
+
+If no case matches and there is a "default" case, its statements are executed.
+There can be at most one default case and it may appear anywhere in the "switch"
+statement.
 
 ---
 
@@ -763,6 +823,12 @@ default:
 
 > KEYWORDS: **fallthrough**.
 
+In a case or default clause, the last non-empty statement may be a (possibly
+labeled) "fallthrough" statement to indicate that control should flow from the
+end of this clause to the first statement of the next clause. Otherwise control
+flows to the end of the "switch" statement. A "fallthrough" statement may appear
+as the last statement of all but the last clause of an expression switch.
+
 ---
 
 [fallthrough.go](./src/fallthrough.go)
@@ -776,6 +842,10 @@ default:
 ## For The Loop
 
 > KEYWORDS: **for**.
+
+A "for" statement specifies repeated execution of a block. There are three
+forms: The iteration may be controlled by a single condition, a "for" clause, or
+a "range" clause.
 
 ---
 
@@ -791,6 +861,9 @@ default:
 
 > KEYWORDS: **break**.
 
+A "break" statement terminates execution of the innermost "for", "switch", or
+"select" statement within the same function.
+
 ---
 
 [break.go](./src/break.go)
@@ -805,6 +878,9 @@ default:
 
 > KEYWORDS: **continue**.
 
+A "continue" statement begins the next iteration of the innermost "for" loop at
+its post statement.
+
 ---
 
 [continue.go](./src/continue.go)
@@ -818,6 +894,11 @@ default:
 ### Ranges
 
 > KEYWORDS: **range**.
+
+A "for" statement with a "range" clause iterates through all entries of an
+array, slice, string or map, or values received on a channel. For each entry it
+assigns iteration values to corresponding iteration variables if present and
+then executes the block.
 
 ---
 
@@ -942,6 +1023,10 @@ Modules provide
 
 > KEYWORDS: **import**.
 
+An import declaration states that the source file containing the declaration
+depends on functionality of the imported package and enables access to exported
+identifiers of that package.
+
 ---
 
 [import.go](./src/import.go)
@@ -955,6 +1040,9 @@ Modules provide
 ## Goroutines
 
 > KEYWORDS: **go**.
+
+A "go" statement starts the execution of a function call as an independent
+concurrent thread of control, or *goroutine*, within the same address space.
 
 ---
 
@@ -970,6 +1058,33 @@ Modules provide
 
 > KEYWORDS: **chan**.
 
+A channel provides a *mechanism* for concurrently executing functions to
+communicate by *sending* and *receiving* values of a specified element type.
+
+A new, initialized channel value can be made using the built-in function `make`,
+which takes the channel *type* and an *optional capacity* as arguments (size of
+the *buffer*).
+
+A channel may be closed with the built-in function `close`.
+
+#### Deadlock
+
+A deadlock happens when a group of goroutines are waiting for each other and
+none of them is able to proceed. The program will get stuck on the channel send
+operation waiting forever for someone to read the value.
+
+Deadlock occurs:
+
+1. Receiving Channels More Than Expected
+2. Sending Channels More Than Expected
+
+The solution to resolve Channel Deadlock:  
+`Number Of Sending Channels = Number Of Receiving Channels`  
+
+If channel is an unbuffered channel, then sending will be blocked until it is
+ready to receive. It is easier if we use a buffered channel, which
+accepts a limited number of values without any blocking.
+
 ---
 
 [chan.go](./src/chan.go)
@@ -983,6 +1098,10 @@ Modules provide
 ### Select of Communications
 
 > KEYWORDS: **select**.
+
+A "select" statement chooses which of a set of possible *send* or *receive*
+operations will proceed. It looks similar to a "switch" statement but with the
+cases all referring to communication operations.
 
 ---
 
@@ -1006,6 +1125,7 @@ Modules provide
 - [Practical Go Lessons](https://www.practical-go-lessons.com/)
 - [All About GoLang](https://golangdocs.com/)
 - [Golang Advanced Tutorial](https://golangbyexample.com/golang-comprehensive-tutorial/)
+- [Programming.Guide/Go](https://programming.guide/go/)
 - [Go by Example](https://gobyexample.com/)
 - [Go Language Patterns](http://www.golangpatterns.info/)
 - [Go on Exercism](https://exercism.org/tracks/go/concepts)
