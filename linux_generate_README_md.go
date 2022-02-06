@@ -63,18 +63,4 @@ func main() {
 		log.Fatal(err)
 	}
 	fmt.Println(string(outToc))
-
-	/*
-		outHTML, errH := exec.Command("pandoc", "--metadata", "pagetitle=\"Go, Go!\"", "--metadata", "author=\"https://github.com/Imolai\"", "-s", "-o", "Go_Go.html", output).Output()
-		if errH != nil {
-			log.Fatal(errH)
-		}
-		fmt.Println(string(outHTML))
-
-		outHTMLA, errHA := exec.Command("pandoc", "--metadata", "pagetitle=\"Go, Go, Far Away!\"", "--metadata", "author=\"https://github.com/Imolai\"", "-s", "-o", "Go_Go_Far_Away.html", "Go_Go_Far_Away.md").Output()
-		if errHA != nil {
-			log.Fatal(errHA)
-		}
-		fmt.Println(string(outHTMLA))
-	*/
 }
