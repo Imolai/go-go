@@ -1,9 +1,9 @@
-# Go, Go!
+<h1 align="center">Go, Go!</h1>
 
-*Short basic introduction to Go v1.17.6 programming language*  
+<p align="center"><i>Short basic introduction to Go v1.17.6 programming language</i></p>
 
-![Go](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/678px-Go_Logo_Blue.svg.png)  
-*Go Logo is Copyright 2018 The Go Authors. All rights reserved.*  
+<p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/678px-Go_Logo_Blue.svg.png" alt="Go"></p>
+<p align="center"><i>Go Logo is Copyright 2018 The Go Authors. All rights reserved.</i></p>
 
 ## About
 
@@ -25,7 +25,6 @@ better one, nor did I want to surpass them.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
 
-- [About](#about)
 - [Comments](#comments)
 - [Literals](#literals)
 - [Identifiers](#identifiers)
@@ -38,6 +37,7 @@ better one, nor did I want to surpass them.
     - [Syntactical](#syntactical)
     - [Pointer](#pointer)
     - [Channel](#channel)
+    - [Operator precedence](#operator-precedence)
     - [Blank identifier](#blank-identifier)
   - [Constants](#constants)
   - [Variables](#variables)
@@ -77,8 +77,11 @@ better one, nor did I want to surpass them.
 - [Import Packages](#import-packages)
 - [Goroutines](#goroutines)
   - [Channels](#channels)
+    - [Deadlock](#deadlock)
   - [Select of Communications](#select-of-communications)
 - [Used and proposed sources](#used-and-proposed-sources)
+- [Author](#author)
+- [Support](#support)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -1132,6 +1135,19 @@ cases all referring to communication operations.
 - [Oldbloggers Golang posts](https://www.oldbloggers.com/category/golang/)
 
 **[⬆ Back to top](#contents)**
+
+## Author
+
+**Gábor Imolai**
+
+- [Profile](https://github.com/Imolai "Gábor")
+- [Telegram](https://t.me/imolaigabor)
+
+## Support
+
+Contributions, issues, and feature requests are welcome!
+
+Give a ⭐️ if you like this project!
 
 ## License
 
