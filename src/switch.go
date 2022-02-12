@@ -1,29 +1,45 @@
 package main
 
 import (
-	"fmt"
-	"runtime"
-	"time"
+        "fmt"
+        "runtime"
+        "time"
 )
 
 func main() {
-	// [switch] [case]
-	score := 7
-	switch score {
-	case 1, 3, 5, 7:
-		fmt.Println("Terrible")
-	}
+        // We can write multiple if statements.
+        age := 42
+        if age == 16 {
+                fmt.Println("Too young")
+        }
+        if age == 42 {
+                fmt.Println("Adult")
+        }
+        if age == 70 {
+                fmt.Println("Senior")
+        }
 
-	// Switch with a short statement.
-	switch os := runtime.GOOS; os {
-	case "linux":
-		fmt.Println("Linux.")
-	}
+        // But switch is more readable.
+        // [switch] [case]
+        switch age {
+        case 16:
+                fmt.Println("Too young")
+        case 42:
+                fmt.Println("Adult")
+        case 70:
+                fmt.Println("Senior")
+        }
 
-	t := time.Now()
-	// Switch without a condition is the same as switch true.
-	switch {
-	case t.Hour() < 12:
-		fmt.Println("Good morning!")
-	}
+        // Switch with a short statement.
+        switch os := runtime.GOOS; os {
+        case "linux":
+                fmt.Println("Linux.")
+        }
+
+        t := time.Now()
+        // Switch without a condition is the same as switch true.
+        switch {
+        case t.Hour() < 12:
+                fmt.Println("Good morning!")
+        }
 }
