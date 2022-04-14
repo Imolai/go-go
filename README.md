@@ -1,6 +1,6 @@
 <h1 align="center">Go, Go!</h1>
 
-<p align="center"><i>Short basic introduction to Go v1.17.6 programming language</i></p>
+<p align="center"><i>Short basic introduction to Go v1.18 programming language</i></p>
 
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/678px-Go_Logo_Blue.svg.png" alt="Go"></p>
 <p align="center"><i>Go Logo is Copyright 2018 The Go Authors. All rights reserved.</i></p>
@@ -704,7 +704,7 @@ byte     alias for uint8
 rune     alias for int32  
 
 uint     either 32 or 64 bits  
-int      same size as uint  
+int      same size as uint
 uintptr  an unsigned integer large enough to store the uninterpreted bits of a
          pointer value
 
@@ -1212,14 +1212,14 @@ func (u *user) Birth() int {
 }
 
 // <GENERIC>
-// Generics will be introduced in Go v1.18.
-/*
+// Generics introduced in Go v1.18.
+
 func printAnySlice[T any](s []T) {
 	for _, v := range s {
-		fmt.Print(v)
+		fmt.Print(v, " ")
 	}
+	fmt.Println("")
 }
-*/
 
 func main() {
 	// [func] call
@@ -1259,6 +1259,7 @@ func main() {
 	// We call "constructor".
 	me := NewUser(1, 127, "Gábor", "Imolai", "Hungary")
 	fmt.Println(me) // Print via Stringer.
+	printAnySlice(nums)
 }
 ```
 

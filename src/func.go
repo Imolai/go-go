@@ -125,14 +125,14 @@ func (u *user) Birth() int {
 }
 
 // <GENERIC>
-// Generics will be introduced in Go v1.18.
-/*
+// Generics introduced in Go v1.18.
+
 func printAnySlice[T any](s []T) {
 	for _, v := range s {
-		fmt.Print(v)
+		fmt.Print(v, " ")
 	}
+	fmt.Println("")
 }
-*/
 
 func main() {
 	// [func] call
@@ -172,4 +172,5 @@ func main() {
 	// We call "constructor".
 	me := NewUser(1, 127, "Gábor", "Imolai", "Hungary")
 	fmt.Println(me) // Print via Stringer.
+	printAnySlice(nums)
 }
