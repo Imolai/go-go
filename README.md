@@ -1,7 +1,3 @@
----
-permalink: /index.html
----
-
 <h1 align="center">Go, Go!</h1>
 
 <p align="center"><i>Short basic introduction to Go v1.18 programming language</i></p>
